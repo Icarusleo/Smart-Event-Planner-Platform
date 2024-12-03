@@ -1,0 +1,22 @@
+.card {
+  border-radius: 10px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5em 0.75em;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}

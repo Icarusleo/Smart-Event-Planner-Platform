@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Tüm Etkinlikler</h2>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Başlık</th>
+                <th>Kategori</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.category }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{% if event.approved %} Onaylı {% else %} Bekliyor {% endif %}</td>
+                    <td>
+                        <a href="{% url 'update_event' event.id %}" class="btn btn-info btn-sm">Düzenle</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

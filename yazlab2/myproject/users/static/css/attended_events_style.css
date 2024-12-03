@@ -1,0 +1,52 @@
+/* Sayfa düzeni */
+.container {
+  max-width: 1200px;
+}
+
+/* Tablo düzeni */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #343a40;
+  color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Butonlar */
+.btn-outline-primary {
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline-success {
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Başlık */
+h2 {
+  font-weight: bold;
+  letter-spacing: 1px;
+}

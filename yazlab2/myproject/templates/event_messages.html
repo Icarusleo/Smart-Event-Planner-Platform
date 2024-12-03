@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ event.title }} - Mesajlaşma{% endblock %}
+
+{% block content %}
+<head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/messages_style.css' %}">
+</head>
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Mesajlaşma Paneli: {{ event.title }}</h2>
+    {% csrf_token %}
+    <div id="message-list" class="mb-4">
+        {% for message in messages %}
+            <div class="card mb-2">
+                <div class="card-body d-flex">
+                    <!-- Profil Fotoğrafı -->
+                    <div class="me-3">
+                        {% if message.user.profilepicture %}
+                            <img src="{{ message.user.profilepicture.url }}" alt="{{ message.user.username }} profil resmi" class="profile-picture">
+                        {% else %}
+                            <img src="{% static 'default-profile.png' %}" alt="Varsayılan profil resmi" class="profile-picture">
+                        {% endif %}
+                    </div>
+                    <!-- Mesaj Bilgileri -->
+                    <div>
+                        <h5 class="card-title">{{ message.user.username }}</h5>
+                        <p class="card-text">{{ message.content }}</p>
+                        <small class="text-muted">{{ message.created_at|date:"d M Y H:i" }}</small>
+                    </div>
+                    {% if user == message.user %}
+                    <button class="btn btn-danger btn-sm ms-auto delete-message" data-message-id="{{ message.id }}">Sil</button>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Henüz mesaj yok.</p>
+        {% endfor %}
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-message');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const messageId = this.getAttribute('data-message-id');
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+                fetch(`/delete-message/${messageId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrfToken
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        this.closest('.card').remove(); // Mesaj kartını DOM'dan kaldır
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Bir hata oluştu:', error));
+            });
+        });
+    });
+</script>
+
+    <!-- Mesaj Gönderme Formu -->
+    {% if user.is_authenticated %}
+        <form id="message-form" method="post">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <textarea id="message-content" name="content" class="form-control" rows="3" placeholder="Mesajınızı yazın..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </form>
+    {% else %}
+        <p class="text-danger">Mesaj göndermek için giriş yapmanız gerekiyor.</p>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('message-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const content = document.getElementById('message-content').value;
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const url = "{% url 'event_messages' event.id %}";
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': csrfToken
+            },
+            body: `content=${content}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                location.reload(); // Sayfayı yeniden yükleyerek mesajları güncelle
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Bir hata oluştu:', error));
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Onay Bekleyen Etkinlikler</h2>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Başlık</th>
+                <th>Kategori</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in pending_events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.category }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>
+                        <a href="{% url 'approve_event' event.id %}" class="btn btn-success btn-sm">Onayla</a>
+                        <a href="{% url 'reject_event' event.id %}" class="btn btn-danger btn-sm">Reddet</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

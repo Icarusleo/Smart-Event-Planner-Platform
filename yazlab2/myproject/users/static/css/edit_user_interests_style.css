@@ -1,0 +1,47 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  border-radius: 15px;
+  border: none;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+form label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+form .form-group .checkbox {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}

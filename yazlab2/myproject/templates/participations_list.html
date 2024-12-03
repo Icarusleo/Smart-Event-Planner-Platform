@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow mb-5">
+    <div class="card-header bg-primary text-white">
+        <h3>{{ event.title }}</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>İsim</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>İşlemler</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for participation in participations %}
+                    <tr>
+                        <td>{{ participation.id }}</td>
+                        <td>{{ participation.user.name }}</td>
+                        <td>{{ participation.user.username }}</td>
+                        <td><a href="{% url 'admin_cancel_Event'  event.id participation.id%}" class="text-decoration-none">Mesajlar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if messages %}
+<div class="container mt-3">
+   {% for message in messages %}
+   <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+    </div>
+   {% endfor %}
+</div>
+{%endif%}
+
+
+{% endblock %}

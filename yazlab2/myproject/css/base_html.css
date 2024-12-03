@@ -1,0 +1,23 @@
+/* Sayfa Genel Stil */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  z-index: 1000;
+}
+
+/* Ana İçerik Alanı */
+.container {
+  margin-top: 80px; /* Navbar ile çakışmaması için boşluk */
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

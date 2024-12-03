@@ -1,0 +1,142 @@
+/* Navbar */
+.navbar {
+  background-color: #232e3a; /* Nötr koyu gri */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f8f9fa; /* Açık gri */
+}
+
+.navbar .nav-link {
+  color: #e9ecef; /* Çok açık gri */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #f8f9fa; /* Hover efektiyle daha açık gri */
+}
+
+.navbar .dropdown-menu {
+  background-color: #495057; /* Orta koyu gri */
+  border: none;
+  border-radius: 5px;
+}
+
+.navbar .dropdown-item {
+  color: #f8f9fa; /* Açık gri yazı */
+  transition: background-color 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #6c757d; /* Daha koyu hover efekti */
+}
+
+/* Bildirim Sayacı */
+.navbar .badge-danger {
+  background-color: #dc3545; /* Kırmızı */
+  color: #ffffff;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+.navbar-text .badge {
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #ffc107;
+  }
+  100% {
+    box-shadow: 0 0 20px #ffc107;
+  }
+}
+/* Profil Resmi */
+.navbar .nav-link img {
+  border: 2px solid #ced4da; /* Gri çerçeve */
+  transition: border 0.3s ease;
+}
+
+.navbar .nav-link img:hover {
+  border: 2px solid #adb5bd; /* Daha koyu gri hover efekti */
+}
+
+/* Navbar Responsive */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* Genel Sayfa Yapısı */
+body {
+  background-color: #3b3b3b; /* Açık gri arka plan */
+  color: #212529; /* Nötr koyu gri yazı */
+  font-family: "Arial", sans-serif;
+}
+
+/* Konteyner */
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Card */
+.card {
+  background-color: #ffffff; /* Beyaz */
+  border: 1px solid #ced4da; /* Gri çerçeve */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+}
+
+.card .card-title {
+  color: #000000; /* Koyu gri başlık */
+  font-weight: bold;
+}
+
+.card .btn {
+  background-color: #4a4457; /* Orta koyu gri */
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn-outline-:hover {
+  background-color: #490707;
+  color: white;
+}
+
+/* Tablo */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  background-color: #6c757d;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}

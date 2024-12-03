@@ -1,0 +1,137 @@
+/* Genel Ayarlar */
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+/* Kart Tasarımı */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Harita Bölümü */
+#map {
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Rota Planlama */
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-select {
+  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Yorumlar */
+.card-header.bg-secondary {
+  background-color: #6c757d !important;
+  color: #fff;
+}
+
+#comment-list {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.comment strong {
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.comment hr {
+  margin: 10px 0;
+}
+
+.delete-comment {
+  margin-top: 10px;
+}
+
+/* Yorum Yapma */
+.card-body textarea {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.card-body button {
+  margin-top: 10px;
+}
+
+/* Butonlar */
+.btn {
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .card-header {
+    text-align: center;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .form-select {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}

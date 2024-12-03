@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}katılınılan Etkinlikler{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">{{selecteduser.username}}</h2>
+    <h2 class="text-center text-primary mb-4">Tarafından Katılınılan Etkinlikler</h2>
+    
+    {% if events %}
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Etkinlik Başlığı</th>
+                        <th>Tarih</th>
+                        <th>Kategori</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td class="text-center">{{ event.id }}</td>
+                            <td>{{ event.title }}</td>
+                            <td class="text-center">{{ event.date }}</td>
+                            <td class="text-center">{{ event.category }}</td>
+                            <td class="text-center">
+                                <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-primary btn-sm me-2">Detay Görüntüle</a>
+                                <a href="{% url 'event_messages' event.id %}" class="btn btn-outline-success btn-sm">Mesajlar</a>
+                                
+                                <form action="{% url 'cancel_attend' event.id %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">İptal Et</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            Henüz katılınılan bir etkinlik bulunmamaktadır.
+        </div>
+    {% endif %}
+    {% if messages %}
+    <div class="container mt-3">
+       {% for message in messages %}
+       <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+        </div>
+       {% endfor %}
+    </div>
+   {% endif %}
+</div>
+{% endblock %}

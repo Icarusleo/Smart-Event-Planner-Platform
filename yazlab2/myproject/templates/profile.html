@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Profil Sayfası{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>{{ user.username }}'in Profili</h2>
+    <div class="profile-info">
+        <img src="{{ user.profilepicture.url }}" alt="Profil Resmi" class="rounded-circle" width="150" height="150">
+        <p><strong>Kullanıcı Adı:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <!-- Diğer profil bilgileri -->
+    </div>
+</div>
+{% endblock %}

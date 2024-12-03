@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Kayıt Ol</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.confirm_password.label_tag }}
+                    {{ form.confirm_password }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.surname.label_tag }}
+                    {{ form.surname }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.birthdate.label_tag }}
+                    {{ form.birthdate }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.gender.label_tag }}
+                    {{ form.gender }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.phone_number.label_tag }}
+                    {{ form.phone_number }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.profilepicture.label_tag }}
+                    {{ form.profilepicture }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.interests.label_tag }}
+                    {{ form.interests }}
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4">Kayıt Ol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

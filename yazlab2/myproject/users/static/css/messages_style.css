@@ -1,0 +1,102 @@
+/* Genel Sayfa Düzeni */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Başlık */
+h2 {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+/* Mesaj Kartları */
+#message-list .card {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#message-list .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Kart Başlıkları */
+.card-title {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Kart Metinleri */
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Tarih Bilgisi */
+.text-muted {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Mesaj Gönderme Formu */
+#message-form {
+  margin-top: 20px;
+}
+
+#message-form textarea {
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+}
+
+#message-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+#message-form button {
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#message-form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Boş Mesaj Durumu */
+#message-list p {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  margin-top: 20px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff; /* Mavi kenar */
+}
+.delete-message {
+  margin-left: auto;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  width: 50px;
+  height: 50px;
+}
+
+.delete-message:hover {
+  background-color: #dc3545;
+  color: white;
+}

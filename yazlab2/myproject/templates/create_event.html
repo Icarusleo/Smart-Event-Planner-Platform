@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/create_event_style.css' %}">
+    </head>
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Etkinlik Oluştur</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.description.label_tag }}
+                    {{ form.description }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.date.label_tag }}
+                    {{ form.date }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.start_time.label_tag }}
+                    {{ form.start_time }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.end_time.label_tag }}
+                    {{ form.end_time }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.category.label_tag }}
+                    {{ form.category }}
+                </div>
+                
+                <div class="form-row">
+                    {{ form.location.label_tag }}
+                    {{ form.location }}
+                </div>
+                
+                <div id="map" style="width: 100%; height: 400px; margin: 20px 0;"></div>
+                <input type="hidden" id="id_latitude" name="latitude">
+                <input type="hidden" id="id_longitude" name="longitude">
+                
+                {% if messages %}
+                 <div class="container mt-3">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                         {{ message }}
+                     </div>
+                    {% endfor %}
+                 </div>
+                {% endif %}
+
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success px-4">Oluştur</button>
+                </div>
+
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let map;
+    let marker;
+
+    function initMap() {
+        const initialPosition = { lat: 39.92077, lng: 32.85411 }; // Varsayılan konum (Ankara)
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: initialPosition,
+            zoom: 13,
+        });
+
+        marker = new google.maps.Marker({
+            position: initialPosition,
+            map: map,
+            draggable: true,
+        });
+
+        // Marker taşındığında koordinatları form alanlarına yaz
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById('id_latitude').value = event.latLng.lat();
+            document.getElementById('id_longitude').value = event.latLng.lng();
+        });
+
+        // Haritaya tıklanırsa marker'ı hareket ettir
+        google.maps.event.addListener(map, 'click', function (event) {
+            marker.setPosition(event.latLng);
+            document.getElementById('id_latitude').value = event.latLng.lat();
+            document.getElementById('id_longitude').value = event.latLng.lng();
+        });
+    }
+</script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC_5mRECMhp3Ul--xTUfRpXCBzIIWwDWg&callback=initMap">
+</script>
+
+{% endblock %}
+

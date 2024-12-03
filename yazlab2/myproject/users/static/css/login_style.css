@@ -1,0 +1,66 @@
+/* login_style.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 80px auto; /* Navbar ile arayı açmak için üstten boşluk ekliyoruz */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.login-container label {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.login-container .links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-container .links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-container .links a:hover {
+  text-decoration: underline;
+}

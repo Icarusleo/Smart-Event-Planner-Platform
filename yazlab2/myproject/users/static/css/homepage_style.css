@@ -1,0 +1,106 @@
+/* homepage_style.css */
+
+/* Genel stil */
+body {
+  background-color: #fdfdfd; /* Hafif gri arka plan */
+  color: #343a40; /* Koyu gri metin rengi */
+  font-family: "Arial", sans-serif;
+}
+
+/* Başlıklar */
+h2.text- {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #584155; /* Daha canlı mavi */
+}
+h5.text- {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #584155; /* Daha canlı mavi */
+}
+
+/* Kartlar için stil */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Hafif yükselme efekti */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #6c757d; /* Daha açık metin rengi */
+}
+
+.card .btn {
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.card .btn-outline- {
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.card .btn-outline-:hover {
+  background-color: #490707;
+  color: white;
+}
+
+/* Önerilen etkinlikler ve harita */
+#map {
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  margin-top: 20px;
+}
+
+/* Öneri başlığı */
+.text-primary {
+  font-weight: bold;
+}
+
+/* Etkinlik oluştur butonu */
+.btn-warning {
+  background-color: #ffc107;
+  color: #343a40;
+  font-weight: bold;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  color: #fff;
+}
+
+/* Responsive düzen */
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+  }
+}

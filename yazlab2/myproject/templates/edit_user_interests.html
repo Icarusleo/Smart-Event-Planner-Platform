@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/edit_user_interests_style.css' %}">
+</head>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>İlgi Alanlarını Düzenle</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success px-4">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Yeni Hesap Oluştur</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+    </form>
+    <div class="mt-3">
+      <a href="{% url 'login' %}">Zaten bir hesabınız var mı? Giriş yapın</a>
+    </div>
+  </div>
+{% endblock %}
